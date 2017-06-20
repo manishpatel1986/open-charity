@@ -1,0 +1,585 @@
+/* ==============================================
+  Global Font
+============================================== */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("//db.onlinewebfonts.com/c/1b4cd06b44538d529084b3599f708643?family=MuseoSansW01-Rounded300");
+
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+@import 'grid';
+@import 'slick';
+
+/* ==============================================
+  Global CSS
+============================================== */
+body {
+	color: $grey;
+	font: $font-weight-normal $font-size-base $font-family-base;
+}
+
+.container {	
+	margin: 0 auto;
+  max-width: $base-width;
+  width: 100%; 
+  @include clearfix; 
+
+  @media screen and (max-width: $screen-large) {
+  	.content {
+      padding: 0 15px;
+    }
+  }
+}
+
+.green-text {
+	color: $green;
+}
+
+.text-center{
+	text-align: $text-center;
+}
+
+h2,h3,h4 {
+	font-weight: $font-weight-h2;
+}
+
+a {
+	color: $dark-cyan;
+	@include transition(all 0.5s ease 0s);
+	text-decoration: none;
+}
+
+p {
+	line-height: 1.8;
+	margin: 0 0 0.5em;
+}
+
+/* ==============================================
+  HEADER CSS
+============================================== */
+header {
+  box-shadow: $header-box-shadow;
+  @include clearfix;
+}
+
+.logo {
+  float: left;
+  margin: 15px 0;
+  max-width: 200px;
+
+  img {
+  	max-width:100%;
+  	display: block;
+  }
+
+  @media screen and (max-width: $screen-large) { 
+  	margin: 10px 15px;
+  }
+}
+
+.navigation {
+	float: right;
+	margin: 16px 0;
+
+	@media screen and (max-width: $screen-medium-max) { 
+		float: none;
+		margin: 0;
+		position: relative;
+	}
+
+	.menu {
+		margin: 0;
+
+		li {
+			float: left;
+			font: $font-size-base $font-family-museo;
+			list-style: none;
+	    margin: 0 15px;
+	    text-transform: uppercase;
+
+	    &.leaf {
+	    	list-style: none;
+        margin-right: 0;
+        padding-right: 0;
+	    }
+
+	    &:last-child a {
+		    border: 2px solid $green;;
+		    border-radius: $border-radius-base;
+		    color: $green;
+		    cursor: pointer;
+		    display: inline-block;
+		    letter-spacing: 0.1em;
+		    min-width: 130px;
+		    padding: 10px 20px 8px;
+		    position:relative;
+		    text-align: $text-center;
+		    text-transform: uppercase;
+		    @include transition(all 0.5s ease 0s);
+        overflow: hidden;
+
+		    &:after {
+          background: $green;
+          content: "";
+          height: 0;
+          left: 50%;
+          opacity: 0;
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          z-index: -1;
+          -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          @include transition(all 0.3s ease 0s);
+        }
+
+		    &:hover, &:focus {
+		    	color: $white;
+
+		    	&:after {
+            height: 260%;
+		    		opacity: 1;
+		    	}
+		    }
+	    }
+
+	    a {
+		    color: $grey-light;
+		    display: block;
+		    line-height: 20px;
+	    	padding: 13px 5px;
+
+		    &:hover{
+		    	color: $dark-cyan;
+		    }
+			}
+
+			@media screen and (max-width: $screen-medium-max) {
+				float: none;
+				display: block;
+			} 
+		}
+
+		@media screen and (max-width: $screen-medium-max) {
+			background: $off-grey;
+			display: none;
+			left: 0;
+			padding: 10px 0 20px;
+			position: absolute;
+			top: 48px;
+			width: 100%;
+		}
+	}
+}
+
+.toggle-menu {
+	border: 1px solid $dark-cyan;
+	border-radius: $border-radius-small;
+	display: none;
+	float: right;
+	font-size: $font-size-title;
+	line-height: 20px;
+  margin: 15px;
+  padding: 5px 10px;
+
+  &:hover, &:focus, &.active {
+  	background: $dark-cyan;
+  	color: $white;
+  }
+
+	@media screen and (max-width: $screen-medium-max) {
+		display:block;
+	}
+}
+
+/* ==============================================
+  BANNER CSS
+============================================== */
+
+#hero-banner {
+	background: url(../images/hero-banner.jpg) no-repeat top center/cover;
+	color: $white;
+	clear: both;
+  padding: 5em 0;
+  text-align: $text-center; 
+
+  p {
+    line-height: 2em;
+	}
+}
+
+.banner__content {
+  margin: 0 auto;
+  width: 60%;
+
+  @media screen and (max-width: $screen-large) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: $screen-medium-max) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: $screen-small) {
+    width: 100%;
+  }
+}
+
+.banner__title {
+	color: $white;
+	font: $font-weight-normal $banner-title $font-family-museo-rounded;
+  letter-spacing: 0.03em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $screen-medium-max) {
+  	font-size: 240%;
+  	line-height: 50px;
+  } 
+  @media screen and (max-width: $screen-small) {
+  	font-size: 238%;
+  	line-height: 50px;
+  }   
+}
+
+.banner__subtitle {
+	color: $white;
+  font: $font-weight-normal $font-size-title $font-family-base;
+  letter-spacing: 0.03em;
+  line-height: 2em;
+}
+/* ==============================================
+  EVENT CSS
+============================================== */
+.event__text {
+  float: left;
+  padding: 32px 0;
+
+  h3 {
+    font: $font-weight-h2 $font-size-title $font-family-museo;
+    margin: 0;
+  }
+  
+  strong {
+    color: $grey;
+  }
+
+  @media screen and (max-width: $screen-medium-max) {
+    text-align: $text-center;
+    width: 100%;
+  }
+}
+
+.event__btn {
+  float: right;
+  padding-top: 40px;
+
+  @media screen and (max-width: $screen-medium-max) {
+    clear: both;
+    float: none;
+    padding: 0 0 20px;
+    text-align: $text-center;
+  }
+}
+
+/* ==============================================
+  GET INVOLVED CSS
+============================================== */
+#get-involved {
+  text-align: center;
+
+  .col-4 {
+    margin-top: 20px;
+  }
+
+  .views-field-title {
+    color: $grey-light;
+    font-size: $font-size-title;
+    font-weight: $font-weight-h2;
+    margin: 20px 0;
+    text-transform: uppercase;
+
+    a {
+      color: $grey-light;
+    }
+  }
+
+  .field-content a.btn--border {
+    margin-top: 20px;
+  }
+}
+
+/* ==============================================
+  OUR MISSON CSS
+============================================== */
+  .section {
+    padding: 70px 0;
+
+    h2 {
+      color: $grey-light;
+      font: $font-weight-h2 $font-size-h2 $font-family-museo;
+      margin: 0 0 1em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .section--grey {
+    background: $off-grey;
+  }
+
+  #our-mission {
+    padding-bottom: 50px;
+    text-align: center;
+
+    .view-header {
+      margin-bottom: 50px;
+      padding-bottom: 15px;
+    }
+  }
+
+  .mission__subtitle {
+    margin-bottom: 40px;
+  }
+
+  .mission .item {
+    background: $white;
+    border-radius: $border-radius-box;
+    float: left;
+    margin-right: $grid-spacing;
+
+    &:last-child {
+      margin-right: 0%;
+    }
+
+    @media screen and (max-width: $screen-medium-max) {
+      margin-right: 0;
+      margin-bottom: 85px;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 15px;
+      }
+    }
+
+    .icon {
+      background: $turquoise;
+      border: 10px solid $white;
+      border-radius: $border-radius-full;
+      display: inline-block;
+      height: 100px;
+      margin-top: -55px;
+      text-align: center;
+      width: 100px;
+
+      img {
+        margin: 7px 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-large) {
+    .mission {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include justify-content(center);
+      padding: 0 15px;
+    }
+  }
+
+  .item__title {
+    color: $turquoise;
+    font: $font-weight-h2 $font-size-title $font-family-museo;
+    margin: 15px 20px 10px;
+  }
+
+  .item__content {
+    margin: 0 20px 30px;
+  }
+
+/* ==============================================
+  OUR MEMBERS CSS
+============================================== */
+.members {  
+  padding: 0 0 70px;
+
+  .container {
+    border-top: 1px solid rgba( $black, 0.1);
+    padding-top: 40px;
+  }
+
+  .slick-slide {
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+  }
+}
+
+/* ==============================================
+  BLOG CSS
+============================================== */
+.blog__title {
+  border-bottom: 1px solid rgba( $black, 0.08);
+  color: $dark-cyan;
+  font: $font-weight-h1 $blog-title $font-family-base;
+  margin: 0 15px 12px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blog__title a:hover {
+  color: $slate-gray;
+}
+
+.blog__content {
+  border-bottom: 1px solid rgba($black, 0.08);
+  margin: 0 15px 12px;
+  padding-bottom: 10px;
+}
+
+.blog__date {
+  margin: 0 15px;
+}
+
+@media screen and (max-width: $screen-large) {
+  .blog-slider {
+    padding: 0 15px;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+}
+/* ==============================================
+  BUTTON CSS
+============================================== */
+.btn, button, input[type="submit"], input[type="reset"] {
+  background: $dark-cyan;
+  border: 2px solid $dark-cyan;
+  border-radius: $border-radius-base;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font:  $font-size-base $font-family-museo;
+  letter-spacing: 0.1em;
+  min-width: 140px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  text-align: $text-center;
+  text-transform: uppercase;
+  @include transition(all 0.5s ease 0s);
+
+  &:after {
+    background: rgba($white, 0.5);
+    content: "";
+    height: 0;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    z-index: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    @include transition(all 0.3s ease 0s);
+  }
+
+  &:hover, &:focus {
+    color: $white;
+
+    &:after {
+      height: 260%;
+      opacity: 1;
+    }
+  }
+}
+
+.btn--border {
+  background: none;
+  border-color: $green;
+  color: $green;
+
+  span {
+    color: $green;
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    background: $green;
+    color: $white;
+    z-index: -1;
+  }
+
+  &:hover, &:focus {
+    color: $white;
+
+    span {
+      color: $white;
+    }
+  }
+}
+
+.btn--big {
+  min-width: 200px;
+
+  &:hover, &:focus {
+    &:after {
+      height: 350%;
+    }
+  }
+
+  @media screen and (max-width: $screen-large) { 
+    padding: 10px 30px;
+  }
+}
+
+/* ==============================================
+  FOOTER CSS
+============================================== */
+footer {
+	background: #454850;
+  color: #979eb1;
+  padding-bottom: 15px;
+  padding-top: 25px;
+  text-align: center;
+
+  .social {
+  	font-size: 20px;
+    overflow: hidden;
+
+    .menu {
+    	margin: 0;
+    	padding: 0 0 30px 0;
+    	text-align: center;
+
+    	li {
+    		display: inline-block;
+
+    		a:hover {
+    			color: #fff;
+    		}
+    	}
+    }
+  }
+
+  .copyright {
+  	overflow: hidden;
+  	border-top: 1px solid #585b61;
+  	padding-top: 12px;
+  }
+}

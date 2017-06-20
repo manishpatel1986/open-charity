@@ -1,0 +1,20 @@
+name = Open Charity
+description = A custom HTML/CSS template for Open Charity By Manish
+core = 7.x
+ 
+stylesheets[all][] = css/style.css
+
+scripts[] = js/jquery.min.js
+scripts[] = js/slick.min.js
+scripts[] = js/script.js
+ 
+regions[main_menu] = Main Menu
+regions[banner] = Banner
+regions[event] = Event
+regions[content] = Content
+regions[get_involved] = Get Involved
+regions[mission] = Mission
+regions[members] = Members
+regions[blog] = Blog
+regions[foo_soc] = Footer Social
+regions[foo_copy] = Footer Copyright

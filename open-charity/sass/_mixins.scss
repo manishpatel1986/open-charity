@@ -1,0 +1,92 @@
+/* ===========================================
+ Stylesheet: Mixins & Constants Stylesheet
+============================================== */
+
+/* ------------------------
+  TYPOGRAPHY
+--------------------------- */
+@font-face {
+	font-family: 'museosans500';
+	src: url("../fonts/museosans500.eot");
+    src: url("../fonts/museosans500.eot") format("embedded-opentype"),
+	    url("../fonts/museosans500.woff2") format("woff2"), 
+	    url("../fonts/museosans500.woff") format("woff"), 
+	    url("../fonts/museosans500.ttf") format("truetype"), 
+	    url("../fonts/museosans500.svg#museosans500") format("svg");	
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ------------------------
+  Clearfix
+--------------------------- */
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; 
+    display: table; 
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* ------------------------
+  TRANSITION
+--------------------------- */
+@mixin transition($transition...) {
+	// defining prefixes so we can use them in mixins below
+	$prefixes:      ("-webkit", "-ms", "-o",  "");
+  @each $prefix in $prefixes {
+    #{$prefix}-transition: $transition;
+  }
+
+  transition: $transition;
+}
+
+/* ------------------------
+ Transform
+--------------------------- */
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+/* ------------------------
+  Flexbox 
+--------------------------- */
+// Flexbox display
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+  -ms-flex-pack: $justify;
+}
